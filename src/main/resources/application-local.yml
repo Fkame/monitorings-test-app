@@ -1,0 +1,13 @@
+server:
+  port: 1111
+
+logging:
+  level:
+    test.prometheus: DEBUG
+
+datasource:
+  postgres:
+    url: jdbc:postgresql://localhost:1234/db04?currentSchema=petclinic_test
+    username: user
+    password: 1234qwer
+    jdbcDriver: org.postgresql.Driver

@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  db-postgres:
+    image: postgres:16
+    restart: always
+    environment:
+      POSTGRES_DB: "db04"
+      POSTGRES_USER: "user"
+      POSTGRES_PASSWORD: "1234qwer"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "1234:5432"
+
+
+  # Только чтобы сразу удобно смотреть в БД, если нет плагина в IDEA
+  pg-admin-4:
+    image: dpage/pgadmin4:8.5
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "me.mario@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "1234qwer"
+    ports:
+      - "9100:80"
