@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>test</groupId>
-	<artifactId>prometheus</artifactId>
+	<artifactId>est-monitoring-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>prometheus</name>
-	<description>Demo project for Spring Boot</description>
+	<name>test-monitoring-app</name>
+	<description>Тренировка использование мониторингов: actuator, prometheus, grafana</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

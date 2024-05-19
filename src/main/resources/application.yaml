@@ -1,22 +1,38 @@
 spring:
   application:
-    name: prometheus-test-app
+    name: monitorings-test-app
   liquibase:
     enabled: false
 
 aspects:
   trace-call-stack:
-    package-search-prefixes: test.prometheus
+    package-search-prefixes: test.app.monitorings
     clean-cglib-prefixes-in-class-names: true
 
 management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include:
+          - health
+          - prometheus
+          - metrics
+          - uid
+          - uid-amount
+          - number
+          - loggers
+          - loggers-name
+          - beans
+          - info
+          - liquibase
+          - threaddump
+          - conditions
+          - mappings
+          - logfile
       base-path: "/management"
       path-mapping:
-        health: "health-endpoint-v3-228"
+        health: "health-endpoint-v3"
+
   server:
     port: 8081
   endpoint:
@@ -32,3 +48,7 @@ management:
 info:
   chto-to_vaznoe:
     my-honest-opinion: "None"
+
+logging:
+  level:
+    test.app.monitorings: DEBUG
