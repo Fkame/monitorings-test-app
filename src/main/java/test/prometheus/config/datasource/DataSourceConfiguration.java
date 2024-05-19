@@ -8,20 +8,29 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
+/**
+ * Конфиг создания датасурса.
+ */
 @Slf4j
 @Configuration
 @RequiredArgsConstructor
 public class DataSourceConfiguration {
 
+    /**
+     * Создать датасурс постгреса.
+     * @param props проперти постгреса из файла конфигурации.
+     * @return подготовленный датасурс.
+     */
     @Bean("postgresDataSource")
-    public DataSource createPostgresDataSource(PostgresDataSourceProperties props) {
-        log.debug("\n" +
-                        "----------------- Postgres Datasource Properties -----------------\n" +
-                        "\turl = {}\n" +
-                        "\tusername = {}\n" +
-                        "\tpassword = {}\n" +
-                        "\tdriverClassName = {}\n" +
-                        "----------------- Postgres Datasource Properties -----------------",
+    public DataSource createPostgresDataSource(PostgresDataSourcePropertiesProvider props) {
+        log.debug("""
+
+                        ----------------- Postgres Datasource Properties -----------------
+                        \turl = {}
+                        \tusername = {}
+                        \tpassword = {}
+                        \tdriverClassName = {}
+                        ----------------- Postgres Datasource Properties -----------------""",
                 props.getUrl(), props.getUsername(), props.getPassword(), props.getJdbcDriver()
         );
 
